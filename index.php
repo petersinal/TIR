@@ -46,6 +46,8 @@ $result = $conn->query($sql);
         echo "0 results";
       }
     ?>
+
+    <h1>Test</h1>
 </body>
 
 </html>
