@@ -1,0 +1,5 @@
+admin::heslo1::admin
+user::heslo2::user
+testtest::HesloHeslo1::user
+test5::HesloHeslo1::admin
+test7::HesloHeslo1::user
