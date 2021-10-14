@@ -68,7 +68,7 @@
     <div class="form-group">
     <input type="text" class="form-control" name="overenie" id="3" pattern="<?php echo trim($antiSpamKluc) ?>" aria-describedby="helpId" placeholder="Overenie" required>
     <input type="hidden" name="spravnaodpoved" value="<?php echo trim($antiSpamKluc) ?>">
-        <button type="submit" class="btn">Odoslať</button>
+        <button type="submit" class="btn btn-primary float-right">Odoslať</button>
     </div>
     </div>
          

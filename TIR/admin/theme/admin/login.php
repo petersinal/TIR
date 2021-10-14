@@ -17,7 +17,7 @@
         }
     }
     if($prihlasenyuzivazel == false){
-        echo '<p style="color: red">Zlé meno alebo heslo</p>';
+        echo '<p style="color: red">Nesprávne meno alebo heslo</p>';
         echo '<a href="index.php">Naspäť</a>';
     }
 ?>

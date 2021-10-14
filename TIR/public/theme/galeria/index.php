@@ -15,8 +15,10 @@
  ?>
 
 <section class="container">
+    <div class="row">
+    <div class="col-md-2">
 
-<div class="row pt-5">
+<!-- <div class="row pt-5"> -->
 <div class="col-3">
 <nav class="nav flex-column nav-pills nav-fill">
 <?php foreach($menuGaleria as $adresar => $nazov){
@@ -25,6 +27,7 @@
 </nav>
 </div>
 </div>
+<!-- </div> -->
 
 <div class="col-9">
 <?php $popis = file_get_contents('' .$galeria .'/'. 'description.txt');
@@ -47,7 +50,7 @@
  ?>
 
 </div>
-
+</div>
 </section>
 
 <?php include '../../assets/paticka.php' ?>

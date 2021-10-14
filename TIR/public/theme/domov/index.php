@@ -13,7 +13,7 @@ foreach ($clanky as $clanok)
 
         <div>
 
-        <h1>' . $nadpis . '</h1>
+        <h3>' . $nadpis . '</h3>
         <img src="obrazky/' . $obrazok . '" alt="">
         <p>' . $text . '</p>
         </div>
