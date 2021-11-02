@@ -19,6 +19,6 @@
         fputcsv($suborPrispevky,$novyclanok,';');
         fclose($suborPrispevky);
     }
-    header("Location:index.php");
+    header("Location:index.php?success=true");
 
  ?>

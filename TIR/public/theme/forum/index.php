@@ -2,6 +2,8 @@
 
 <?php 
 
+    const FLASH_SUCCESS = 'success';
+    $_SESSION['flash'] = "Hello, world!";
     function kontrola($vstup)
     {
         //$vstup trim($vstup);
@@ -21,11 +23,24 @@
         fputcsv($suborPrispevky,$novyclanok,';');
         fclose($suborPrispevky);
     }
-    header("Location:index.php");    
+   
+    header("Location:index.php");   
+     
+    }
+    if(empty($_GET)){
+        $success = "false";
+    }else{
+        $success = $_GET['success'];
+    }
+    if($success = "true"){
+        echo '<div class="alert alert-success" role="alert">
+        Správa bola odoslaná
+      </div>';
     }
     
-
- ?>
+    ?>
+    
+ 
 
 <section class="container pt-3">
 <h2 class="py-3 text-center">Fórum</h2>
