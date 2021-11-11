@@ -1,3 +1,4 @@
+<?php include '../../assets/db.php' ?>
 <?php include '../../assets/hlavicka.php' ?>
 <?php
     $inputname = $_POST['name'];
@@ -6,7 +7,6 @@
     $riadkysuboru = file('users.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
     foreach ($riadkysuboru as $riadok)
     {
-        list($name, $password, $post) = explode('::', $riadok);
         if($inputname == $name && $inputpassword == $password){
             $_SESSION["name"] = $inputname;
             $_SESSION["password"] = $inputpassword;
