@@ -7,10 +7,10 @@
     $prihlasenyuzivazel = false;
     $riadkysuboru = file('users.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
-    $sql = "SELECT id, login, heslo, rola FROM uzivatelia WHERE login ='". $inputname."'";
+    $sql = "SELECT login, heslo, rola FROM uzivatelia WHERE login ='". $inputname."' AND heslo ='". md5($inputpassword)."'";
     $result = $conn->query($sql);
+    $row = $result->fetch_assoc();
 
-    while($row = $result->fetch_assoc()){
         if($inputname == $row['login'] && md5($inputpassword) == $row['heslo']){
             $_SESSION["name"] = $inputname;
             $_SESSION["password"] = $inputpassword;
@@ -18,7 +18,6 @@
             $prihlasenyuzivazel = true;
             header('Location: ../domov');
             die();
-    }
 }
     
     // foreach ($riadkysuboru as $riadok)
