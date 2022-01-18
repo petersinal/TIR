@@ -1,3 +1,4 @@
+<?php include '../../../includes/db.php'?>
 <?php include '../../assets/hlavicka.php' ?>
 
 <?php 
@@ -13,16 +14,27 @@
 
     if($_SERVER['REQUEST_METHOD']== "POST"){
 
-    if($_POST['overenie']== $_POST['spravnaodpoved'])
-    {
-        $suborPrispevky = fopen("prispevky.csv", "a");
-        $novyclanok [] = $_GET['pocet'] + 1;
-        $novyclanok [] = kontrola($_POST['meno']);
-        $novyclanok [] = kontrola($_POST['sprava']);
-        $novyclanok [] = date('Y-m-d H:i:s', time());
-        fputcsv($suborPrispevky,$novyclanok,';');
-        fclose($suborPrispevky);
-    }
+//    if($_POST['overenie']== $_POST['spravnaodpoved'])
+//    {
+//        $suborPrispevky = fopen("prispevky.csv", "a");
+//        $novyclanok [] = $_GET['pocet'] + 1;
+//        $novyclanok [] = kontrola($_POST['meno']);
+//        $novyclanok [] = kontrola($_POST['sprava']);
+//        $novyclanok [] = date('Y-m-d H:i:s', time());
+//        fputcsv($suborPrispevky,$novyclanok,';');
+//        fclose($suborPrispevky);
+//    }
+
+        if($_POST['overenie']== $_POST['spravnaodpoved'])
+        {
+            $sql = "INSERT INTO prispevky (meno, prispevok)VALUES ('".$_POST['meno']."', '".$_POST['sprava']."')";
+
+            if ($conn->query($sql) === TRUE) {
+                echo "New record created successfully";
+            } else {
+                echo "Error: " . $sql . "<br>" . $conn->error;
+            }
+        }
    
     header("Location:index.php");   
      
@@ -32,7 +44,6 @@
     }else{
         $success = $_GET['success'];
     }
-    var_dump($success);
     if($success == "true"){
         echo '<div class="alert alert-success" role="alert">
         Správa bola odoslaná <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -93,14 +104,23 @@
          
      </form>
 <?php
-    foreach($prispevky as $prispevok){
+$sql = "SELECT meno, prispevok, cas FROM prispevky";
+$result = $conn->query($sql);
 
-        echo  ' <h4>' . $prispevok[1].  '</h4> ';
-        $datum = strtotime($prispevok[3]);
-        $formatdatum = date("Y-m-d H:i:s", $datum);
-        echo '<small>Odoslané: ' . $formatdatum . '</small> <br>';
-        echo '<p>'. $prispevok[2]. '</p><hr>';
-    }
+while($row = $result->fetch_assoc()) {
+    echo "<h4> " . $row["meno"]. "</h4><br>";
+    echo "<small>Odoslané: ". $row["cas"]."</small> <br>";
+    echo "<p>" . $row["prispevok"]. "</p><hr>";
+}
+
+//    foreach($prispevky as $prispevok){
+//
+//        echo  ' <h4>' . $prispevok[1].  '</h4> ';
+//        $datum = strtotime($prispevok[3]);
+//        $formatdatum = date("Y-m-d H:i:s", $datum);
+//        echo '<small>Odoslané: ' . $formatdatum . '</small> <br>';
+//        echo '<p>'. $prispevok[2]. '</p><hr>';
+//    }
     
  ?>
 </div>

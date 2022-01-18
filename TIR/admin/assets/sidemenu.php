@@ -9,7 +9,7 @@
             <?php
                 $menu = array();
                 $stranka = basename(dirname($_SERVER['SCRIPT_NAME']));
-                $riadkysuboru = file('../../assets/menu2.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+                $riadkysuboru = file('../../assets/menu_admin.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
                 foreach ($riadkysuboru as $riadok){
                     list($k, $h) = explode('::', $riadok);
                     $menu[$k] = $h;

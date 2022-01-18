@@ -1,4 +1,4 @@
-<?php include '../../assets/db.php' ?>
+<?php include '../../../includes/db.php' ?>
 <?php include '../../assets/hlavicka.php' ?>
 <?php
     $inputname = $_POST['name'];
@@ -15,7 +15,7 @@
             $_SESSION["name"] = $inputname;
             $_SESSION["password"] = $inputpassword;
             $_SESSION["post"] = $post;
-            $prihlasenyuzivazel = true;
+            $_SESSION["prihlasenyuzivatel"] = true;
             header('Location: ../domov');
             die();
 }

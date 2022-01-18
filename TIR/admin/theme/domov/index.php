@@ -1,6 +1,7 @@
-<?php include '../../assets/logincheck.php' ?>
+<?php include '../../../includes/logincheck.php'?>
 <?php include '../../assets/hlavicka.php' ?>
 <?php include '../../assets/sidemenu.php' ?>
+
 <div class="w-75 p-3 col-xs-6">
     <!-- CONTENT -->
     <h1>Aktuality</h1>

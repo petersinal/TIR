@@ -1,4 +1,4 @@
-<?php include '../../assets/db.php' ?>
+<?php include '../../../includes/db.php' ?>
 <?php include '../../assets/hlavicka.php' ?>
 <div class="d-flex justify-content-center">
 <h1>Administrácia</h1>
