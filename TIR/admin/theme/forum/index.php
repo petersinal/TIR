@@ -36,17 +36,32 @@
     $sql = "SELECT meno, prispevok, cas FROM prispevky";
     $result = $conn->query($sql);
 
+    echo '<table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Meno</th>
+        <th scope="col">Správa</th>
+        <th scope="col">Čas</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+    '; 
     while($row = $result->fetch_assoc()) {
-        echo "<h4> " . $row["meno"]. "</h4><br>";
-        echo "<small>Odoslané: ". $row["cas"]."</small> <br>";
-        echo "<p>" . $row["prispevok"]. "</p>";
-        echo '<button type="button" data-bs-moje="'.$row["prispevok"].'" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+      echo '<tr>';
+        echo "<td><h4> " . $row["meno"]. "</h4></td>";
+        echo "<td><p>" . $row["prispevok"]. "</p></td>";
+        echo "<td><small>Odoslané: ". $row["cas"]."</small></td>";
+        echo '<td><button type="button" data-bs-moje="'.$row["prispevok"].'" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
         Delete
-      </button>
-      <hr>';
+      </button></th>
+      '; echo '
+      </tr>
+    ';
     }
-        
     ?>
+    </tbody>
+  </table>
     <div id="myModal" class="modal">
     <div class="modal-dialog" role="document">
     <div class="modal-content">
